@@ -1,0 +1,11 @@
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\bin\Debug\phonban.exe.config
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\bin\Debug\phonban.exe
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\bin\Debug\phonban.pdb
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\obj\Debug\phonban.csprojResolveAssemblyReference.cache
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\obj\Debug\phonban.frm_phongban.resources
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\obj\Debug\phonban.Properties.Resources.resources
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\obj\Debug\phonban.csproj.GenerateResource.Cache
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\obj\Debug\phonban.exe
+c:\users\administrator\documents\visual studio 2015\Projects\phonban\phonban\obj\Debug\phonban.pdb
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\phonban\phonban\obj\Debug\phonban.Form1.resources
+C:\Users\Administrator\Documents\Visual Studio 2015\Projects\phonban\phonban\obj\Debug\phonban.frm_them.resources
