@@ -79,15 +79,15 @@ namespace phonban
             ServiceReference1.Nhanvien1 objuse = new ServiceReference1.Nhanvien1();
             objuse.Ma = txt_manv.Text;
             objuse.Ten = txt_hoten.Text;
-    //        objuse.Ngaysinh = DateTime.Parse(dtk_ngaysinh.Text);
+            objuse.Ngaysinh = DateTime.Parse(dtk_ngaysinh.Text);
             Boolean gioiTinh = false;
             if (cmb_gioitinh.Text == "Nam")
             {
                 gioiTinh = true;
             }
+            else
+                gioiTinh = false;
             objuse.Gioitinh = gioiTinh;
-            objuse.Email = txt_email.Text;
-
             try
             {
                 MemoryStream str1 = new MemoryStream();
@@ -101,7 +101,22 @@ namespace phonban
                 objuse.Anh = null;
 
             }
-            
+            objuse.Quequan = txt_quequan.Text;
+            objuse.Noisinh = txt_noisinh.Text;
+            objuse.Hokhauthuongtru = txt_thuongtru.Text;
+            //   objuse.Diachilienlac = txt_tamtru.Text;
+            objuse.Quoctich = txt_quoctich.Text;
+            objuse.Tongiao = txt_tongiao.Text;
+            objuse.CMT = txt_cmtnd.Text;
+            objuse.Ngaycap = DateTime.Parse(dtp_ngaycap.Text);
+            objuse.Noiohientai = txt_tamtru.Text;
+            objuse.Dienthoai = txt_sdt.Text;
+
+            objuse.Email = txt_email.Text;
+            //     objuse.Tinhtranghonnhan = cmb_tinhtranghonn
+            objuse.Trinhdongoaingu = txt_hocvan.Text;
+
+
             nv.InsertNhanvien(objuse);
             Form1 fr = new Form1();
             fr.Show(this);
