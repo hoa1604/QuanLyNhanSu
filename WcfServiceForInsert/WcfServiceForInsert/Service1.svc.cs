@@ -24,8 +24,8 @@ namespace WcfServiceForInsert
         {
             nhanvien nv = new nhanvien();
             nhanvien dt = db.nhanviens.Single(s => s.ma.Equals(useInfo.Ma));
-       //     nv.status = 0;
-               db.nhanviens.Remove(dt);
+            //     nv.status = 0;
+            db.nhanviens.Remove(dt);
             db.SaveChanges();
             return true;
         }
@@ -40,8 +40,8 @@ namespace WcfServiceForInsert
 
         public Boolean InsertNhanvien(Nhanvien useInfo)
         {
-           // string Message;
-             bool Result = false;
+            // string Message;
+            bool Result = false;
             try
             {
                 nhanvien nv = new nhanvien();
@@ -52,7 +52,7 @@ namespace WcfServiceForInsert
                 nv.quequan = useInfo.Quequan;
                 nv.noisinh = useInfo.Noisinh;
                 nv.hokhauthuongtru = useInfo.Hokhauthuongtru;
-         //       nv.diachilienlac = useInfo.Diachilienlac;
+                //       nv.diachilienlac = useInfo.Diachilienlac;
                 nv.quoctich = useInfo.Quoctich;
                 nv.tongiao = useInfo.Tongiao;
                 nv.soCMT = useInfo.CMT;
@@ -68,19 +68,19 @@ namespace WcfServiceForInsert
                 catch (Exception ex)
                 {
                     Result = false;
-                  //  string MessageBox = null;
-                 //   MessageBox= ("Lỗi" + ex);
+                    //  string MessageBox = null;
+                    //   MessageBox= ("Lỗi" + ex);
                 }
-            //    Message = useInfo.Ten + "Success";
-                   Result = true;
+                //    Message = useInfo.Ten + "Success";
+                Result = true;
             }
             catch (Exception)
             {
-             //   Message = useInfo.Ten + "Thêm Thất bại!!";
-                  Result = false;
+                //   Message = useInfo.Ten + "Thêm Thất bại!!";
+                Result = false;
             }
-              return Result;
-        ///    return Message; 
+            return Result;
+            ///    return Message; 
         }
 
 
@@ -125,14 +125,14 @@ namespace WcfServiceForInsert
 
         public void LOADNV(Nhanvien useInfo)
         {
-         //   string id;
-            nhanvien nv = db.nhanviens.Single(s => s.ma==useInfo.Ma);
+            //   string id;
+            nhanvien nv = db.nhanviens.Single(s => s.ma == useInfo.Ma);
         }
-      
+
         public DataSet SelectUserDetails()
         {
 
-       
+
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-MON8K1N\SQLEXPRESS;Initial Catalog=QLNhanSu;Integrated Security=True");
             con.Open();
 
@@ -153,8 +153,8 @@ namespace WcfServiceForInsert
             bool Result = false;
             try
             {
-           
-              nhanvien nv= db.nhanviens.Single(s => s.ma.Equals(useInfo.Ma)); 
+
+                nhanvien nv = db.nhanviens.Single(s => s.ma.Equals(useInfo.Ma));
                 nv.ten = useInfo.Ten;
                 nv.gioitinh = useInfo.Gioitinh;
                 nv.ngaysinh = useInfo.Ngaysinh;
@@ -162,7 +162,7 @@ namespace WcfServiceForInsert
                 nv.quequan = useInfo.Quequan;
                 nv.noisinh = useInfo.Noisinh;
                 nv.hokhauthuongtru = useInfo.Hokhauthuongtru;
-           //     nv.diachilienlac = useInfo.Diachilienlac;
+                //     nv.diachilienlac = useInfo.Diachilienlac;
                 nv.quoctich = useInfo.Quoctich;
                 nv.tongiao = useInfo.Tongiao;
                 nv.soCMT = useInfo.CMT;
@@ -170,11 +170,11 @@ namespace WcfServiceForInsert
                 nv.noiohiennay = useInfo.Noiohientai;
                 nv.dienthoai = useInfo.Dienthoai;
                 nv.email = useInfo.Email;
-              //  nv.tinhtranghonnhan = useInfo.Tinhtranghonnhan;
+                //  nv.tinhtranghonnhan = useInfo.Tinhtranghonnhan;
                 nv.trinhdongoaingu = useInfo.Trinhdongoaingu;
-             //   nv.dantoc = useInfo.Dantoc;
+                //   nv.dantoc = useInfo.Dantoc;
                 db.SaveChanges();
-                    Result = true;
+                Result = true;
             }
             catch (Exception)
             {
@@ -182,27 +182,27 @@ namespace WcfServiceForInsert
             }
             return Result;
         }
-     
+
 
         public void Updatephongban(phong useInfo)
         {
 
             phongban dt = db.phongbans.Single(s => s.ma.Equals(useInfo.Ma)); ;
-          //  dt.ma = useInfo.Ma;
+            //  dt.ma = useInfo.Ma;
             dt.ten = useInfo.Ten;
             dt.sdt = useInfo.SDT;
             dt.email = useInfo.Email;
-        //    db.phongbans.Add(dt);
+            //    db.phongbans.Add(dt);
             db.SaveChanges();
-           
+
 
         }
 
         public List<nhanvien> findALL()
         {
             return db.nhanviens.ToList();
-    
-    }
+
+        }
 
         public nhanvien find(string id)
         {
@@ -225,19 +225,21 @@ namespace WcfServiceForInsert
         //qua trinh thay doi _ Hoa
         public Dictionary<string, string> CobNhanVien()
         {
-          
+
             Dictionary<string, string> cobNhanVien = new Dictionary<string, string>();
-            foreach(var item in db.nhanviens)
+            cobNhanVien.Add("0", "Chọn nhân viên");
+            foreach (var item in db.nhanviens)
             {
                 cobNhanVien.Add(item.ma.ToString(), item.ten.ToString());
             }
-           
+
             return cobNhanVien;
         }
         public Dictionary<string, string> CobPhongBan()
         {
-
+            
             Dictionary<string, string> cobPhongBan = new Dictionary<string, string>();
+            cobPhongBan.Add("0", "Chọn phòng ban");
             foreach (var item in db.phongbans)
             {
                 cobPhongBan.Add(item.ma.ToString(), item.ten.ToString());
@@ -245,6 +247,30 @@ namespace WcfServiceForInsert
 
             return cobPhongBan;
         }
+
+        public int IdNhanVienPhongBan()
+        {
+            var maxId = db.nhanvienphongbans.OrderByDescending(s => s.ma).Take(1).SingleOrDefault();
+            int max = int.Parse(maxId.ma) + 1;
+            return max;
+        }
+      
+        public List<danhsachnhanvienphongban> LoadNhanVienPhongBan()
+        {
+            var list = from s in db.nhanvienphongbans
+                       select new danhsachnhanvienphongban
+                       {
+                           Ma = s.ma,
+                           Nhanvienma=s.nhanvienma,
+                           Nhanvien = s.nhanvien.ten,
+                           Phongbanma=s.phongbanma,
+                           Phongbanten = s.phongban.ten,
+                           //   Ngaychuyenphong = DateTime.Parse(s.ngaychuyenphong.Value.ToString("dd-mm-yyyy"))
+                           Ngaychuyenphong = s.ngaychuyenphong.Value
+                       };
+            return list.ToList();
+        }
+
         public bool InsertNhanVienPhongBan(nhanvienphongban2 nv)
         {
             var nhanvien = new nhanvienphongban();
@@ -258,12 +284,69 @@ namespace WcfServiceForInsert
                 db.SaveChanges();
                 return true;
             }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool UpdateNhanVienPhongBan(nhanvienphongban2 nv)
+        {
+            var update = db.nhanvienphongbans.Where(s => s.ma.Contains(nv.Ma)).SingleOrDefault();
+            update.nhanvienma = nv.Nhanvienma;
+            update.phongbanma = nv.Phongbanma;
+            update.ngaychuyenphong = nv.Ngaychuyenphong;
+            try
+            {
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception Ex)
+            {
+                return false;
+            }
+        }
+
+        public bool DeleteNhanVienPhongBan(string id)
+        {
+            var nv = db.nhanvienphongbans.Where(s => s.ma.Contains(id)).SingleOrDefault();
+            db.nhanvienphongbans.Remove(nv);
+            try
+            {
+                db.SaveChanges();
+                return true;
+            }
             catch(Exception)
             {
                 return false;
             }
-           
         }
-      
+
+        public List<danhsachnhanvienphongban> SearchNhanVienPhongBan(string nvma, string pbma)
+        {
+            var lstDataQr = (from a in db.nhanvienphongbans
+                             select a).AsQueryable();
+            if(nvma!="0")
+            {
+                lstDataQr = lstDataQr.Where(a => a.nhanvienma.Contains(nvma));
+            }
+            if(pbma!="0")
+            {
+                lstDataQr = lstDataQr.Where(a => a.phongbanma.Contains(pbma));
+            }
+            var list = from s in lstDataQr
+                       select new danhsachnhanvienphongban
+                       {
+                           Ma = s.ma,
+                           Nhanvienma = s.nhanvienma,
+                           Nhanvien = s.nhanvien.ten,
+                           Phongbanma = s.phongbanma,
+                           Phongbanten = s.phongban.ten,
+                           //   Ngaychuyenphong = DateTime.Parse(s.ngaychuyenphong.Value.ToString("dd-mm-yyyy"))
+                           Ngaychuyenphong = s.ngaychuyenphong.Value
+                       };
+            return list.ToList();
+        }
+
     }
 }

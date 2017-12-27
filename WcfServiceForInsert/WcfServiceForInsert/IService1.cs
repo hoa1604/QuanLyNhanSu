@@ -59,7 +59,18 @@ namespace WcfServiceForInsert
         [OperationContract]
         Dictionary<string, string> CobPhongBan();
         [OperationContract]
+        int IdNhanVienPhongBan();
+       
+        [OperationContract]
+        List<danhsachnhanvienphongban> LoadNhanVienPhongBan();
+        [OperationContract]
         bool InsertNhanVienPhongBan(nhanvienphongban2 nv);
+        [OperationContract]
+        bool UpdateNhanVienPhongBan(nhanvienphongban2 nv);
+        [OperationContract]
+        bool DeleteNhanVienPhongBan(string id);
+        [OperationContract]
+        List<danhsachnhanvienphongban> SearchNhanVienPhongBan(string nvma, string pbma);
 
     }
 
@@ -328,6 +339,54 @@ namespace WcfServiceForInsert
             set { ngaychuyenphong = value; }
         }
 
+    }
+    [DataContract]
+    public class danhsachnhanvienphongban
+    {
+        
+        string ma;
+        string nhanvienma;
+        string nhanvien;
+        string phongbanma;
+        string phongbanten;
+        DateTime ngaychuyenphong;
+        [DataMember]
+        public string Ma
+        {
+            get { return ma; }
+            set { ma = value; }
+        }
+        [DataMember]
+        public string Nhanvienma
+        {
+            get { return nhanvienma; }
+            set { nhanvienma = value; }
+        }
+        [DataMember]
+        public string Nhanvien
+        {
+            get { return nhanvien; }
+            set { nhanvien = value; }
+        }
+
+        [DataMember]
+        public string Phongbanma
+        {
+            get { return phongbanma; }
+            set { phongbanma = value; }
+        }
+        [DataMember]
+        public string Phongbanten
+        {
+            get { return phongbanten; }
+            set { phongbanten = value; }
+        }
+        [DataMember]
+        public DateTime Ngaychuyenphong
+        {
+            get { return ngaychuyenphong; }
+            set { ngaychuyenphong = value; }
+        }
     }
     
 
