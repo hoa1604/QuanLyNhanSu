@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfServiceForInsert" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfServiceForInsert" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="phong">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SDT" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ten" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="phong" nillable="true" type="tns:phong" />
+  <xs:complexType name="Nhanvien">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Anh" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gioitinh" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Ma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ngaysinh" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Quequan" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Ten" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Nhanvien" nillable="true" type="tns:Nhanvien" />
+</xs:schema>
