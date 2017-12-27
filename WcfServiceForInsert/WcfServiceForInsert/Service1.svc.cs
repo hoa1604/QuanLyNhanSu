@@ -17,7 +17,8 @@ namespace WcfServiceForInsert
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        QLNhanSuEntities1 db = new QLNhanSuEntities1();
+        //QLNhanSuEntities1 db = new QLNhanSuEntities1();
+        QLNhanSuEntities2 db = new QLNhanSuEntities2();
 
         public bool DeleteNhanvien(Nhanvien useInfo)
         {
@@ -219,6 +220,50 @@ namespace WcfServiceForInsert
 
         }
 
+
+
+        //qua trinh thay doi _ Hoa
+        public Dictionary<string, string> CobNhanVien()
+        {
+          
+            Dictionary<string, string> cobNhanVien = new Dictionary<string, string>();
+            foreach(var item in db.nhanviens)
+            {
+                cobNhanVien.Add(item.ma.ToString(), item.ten.ToString());
+            }
+           
+            return cobNhanVien;
+        }
+        public Dictionary<string, string> CobPhongBan()
+        {
+
+            Dictionary<string, string> cobPhongBan = new Dictionary<string, string>();
+            foreach (var item in db.phongbans)
+            {
+                cobPhongBan.Add(item.ma.ToString(), item.ten.ToString());
+            }
+
+            return cobPhongBan;
+        }
+        public bool InsertNhanVienPhongBan(nhanvienphongban2 nv)
+        {
+            var nhanvien = new nhanvienphongban();
+            nhanvien.nhanvienma = nv.Nhanvienma;
+            nhanvien.phongbanma = nv.Phongbanma;
+            nhanvien.ma = nv.Ma;
+            nhanvien.ngaychuyenphong = nv.Ngaychuyenphong;
+            db.nhanvienphongbans.Add(nhanvien);
+            try
+            {
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
+           
+        }
       
     }
 }

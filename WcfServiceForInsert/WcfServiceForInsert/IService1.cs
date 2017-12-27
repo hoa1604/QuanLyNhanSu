@@ -51,10 +51,21 @@ namespace WcfServiceForInsert
         bool DeleteNhanvien(Nhanvien useInfo);
         [OperationContract]
        Boolean UpdateNhanvien(Nhanvien useInfo);
+
+
+        //change_Hoa
+        [OperationContract]
+        Dictionary<string, string> CobNhanVien();
+        [OperationContract]
+        Dictionary<string, string> CobPhongBan();
+        [OperationContract]
+        bool InsertNhanVienPhongBan(nhanvienphongban2 nv);
+
     }
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
+
     [DataContract]
     public class Nhanvien
     {
@@ -283,4 +294,41 @@ namespace WcfServiceForInsert
         }
 
     }
+
+
+    [DataContract]
+    public class nhanvienphongban2
+    {
+        string nhanvienma;
+        string phongbanma;
+        string ma;
+        DateTime ngaychuyenphong;
+        [DataMember]
+        public string Nhanvienma
+        {
+            get { return nhanvienma; }
+            set { nhanvienma = value; }
+        }
+        [DataMember]
+        public string Phongbanma
+        {
+            get { return phongbanma; }
+            set { phongbanma = value; }
+        }
+        [DataMember]
+        public string Ma
+        {
+            get { return ma; }
+            set { ma = value; }
+        }
+        [DataMember]
+        public DateTime Ngaychuyenphong
+        {
+            get { return ngaychuyenphong; }
+            set { ngaychuyenphong = value; }
+        }
+
+    }
+    
+
 }
